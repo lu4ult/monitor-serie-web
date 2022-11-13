@@ -12,8 +12,21 @@
 }
 
 body {
+
+    font-family: 'Roboto', sans-serif;
+
     @extend .centrarColumna;
     //background: black;
+
+    &.temaOscuro {
+        background-color: black;
+        color: white;
+    }
+
+    &.temaClaro {
+        background-color: white;
+        color: black;
+    }
 
     .portOptions {
 
@@ -23,6 +36,8 @@ body {
         justify-content: center;
 
         button {
+            font-family: inherit;
+            font-weight: 600;
             margin: 1rem;
             width: 80px;
             height: 80px;
@@ -30,23 +45,35 @@ body {
             justify-content: space-around;
             background-color: inherit;
             cursor: pointer;
+            box-shadow: 5px 5px 5px rgba(0,0,127,0.5);
+
+            &:active {
+                transform: translate(2px, 2px);
+            }
+
+            &:hover {
+                background-color: #ccc;
+            }
+
+           // border: none;
+           border: 2px solid blue;
             svg {
                 width: 50%;
                 height: 50%;
             }
+            select {
+                background-color: inherit;
+                color: inherit;
+            }
         }
 
-        // select {
-        //     background-color: inherit;
-        // }
-
-        // button {
-        //     margin: 0.5rem;
-        //     padding: 0.25rem;
-        //     background-color: inherit;
-        // }
-
-
+        .temaOscuro {
+            box-shadow: 3px 3px 2px rgba(0,0,255,0.5);
+            color: green;
+            svg {
+                fill: green;
+            }
+        }
     }
 
     main {
@@ -69,8 +96,10 @@ body {
                 color: white;
                 outline: 2px solid black;
 
-                //margin: 0.5rem;
-                //padding: 0.5rem;
+                &.temaOscuro {
+                    outline: 2px solid #444;
+                }
+
                 .keys__name {
                     padding: 0.25rem;
                     background-color: black;
@@ -90,20 +119,50 @@ body {
             margin: 0.5rem 0;
             border: 2px solid #ccc;
             padding: 1rem;
+            height: 40vh;
             max-height: 60vh;
             overflow-y: auto;
             scroll-behavior: smooth;
             //background-color: red;
             span {
-               color: black;
+               color: inherit;
             }
+
+        &.temaOscuro {
+            span {
+                color: green;
+            }
+        }
 
         }
         .monitorOpciones {
             @extend .centrarColumna;
             button {
-                //background: blue;
+                font-family: inherit;
+                font-weight: 600;
+                background-color: inherit;
+                color: inherit;
+                border: 2px solid #ccc;
+                cursor: pointer;
+                padding: 0.5rem;
             }
+        }
+    }
+
+    footer {
+        margin-top: 3rem;
+        position: absolute;
+        bottom: 0;
+        background-color: black;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        a {
+            font-family: inherit;
+            font-weight: 400;
+            text-decoration: none;
+            color: blueviolet;
+
         }
     }
 }

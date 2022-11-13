@@ -5,6 +5,17 @@
   align-items: center;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+body.temaOscuro {
+  background-color: black;
+  color: white;
+}
+body.temaClaro {
+  background-color: white;
+  color: black;
+}
 body .portOptions {
   width: 80%;
   display: flex;
@@ -12,16 +23,37 @@ body .portOptions {
   justify-content: center;
 }
 body .portOptions button {
+  font-family: inherit;
+  font-weight: 600;
   margin: 1rem;
   width: 80px;
   height: 80px;
   justify-content: space-around;
   background-color: inherit;
   cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 127, 0.5);
+  border: 2px solid blue;
+}
+body .portOptions button:active {
+  transform: translate(2px, 2px);
+}
+body .portOptions button:hover {
+  background-color: #ccc;
 }
 body .portOptions button svg {
   width: 50%;
   height: 50%;
+}
+body .portOptions button select {
+  background-color: inherit;
+  color: inherit;
+}
+body .portOptions .temaOscuro {
+  box-shadow: 3px 3px 2px rgba(0, 0, 255, 0.5);
+  color: green;
+}
+body .portOptions .temaOscuro svg {
+  fill: green;
 }
 body main {
   width: 100%;
@@ -40,6 +72,9 @@ body main .keys-container .keys {
   color: white;
   outline: 2px solid black;
 }
+body main .keys-container .keys.temaOscuro {
+  outline: 2px solid #444;
+}
 body main .keys-container .keys .keys__name {
   padding: 0.25rem;
   background-color: black;
@@ -53,10 +88,38 @@ body main .monitor {
   margin: 0.5rem 0;
   border: 2px solid #ccc;
   padding: 1rem;
+  height: 40vh;
   max-height: 60vh;
   overflow-y: auto;
   scroll-behavior: smooth;
 }
 body main .monitor span {
-  color: black;
+  color: inherit;
+}
+body main .monitor.temaOscuro span {
+  color: green;
+}
+body main .monitorOpciones button {
+  font-family: inherit;
+  font-weight: 600;
+  background-color: inherit;
+  color: inherit;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+body footer {
+  margin-top: 3rem;
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+body footer a {
+  font-family: inherit;
+  font-weight: 400;
+  text-decoration: none;
+  color: blueviolet;
 }/*# sourceMappingURL=styles.css.map */
