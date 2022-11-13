@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="portOptions">
+        <select id="baudrateSelector">
+            <option value="9600">9600</option>
+            <option value="115200">115200</option>
+        </select>
+        <button id="selectComPort">Seleccionar y abrir puerto</button>
+        <!-- <button id="ingresar">INgresar datos como json</button> -->
+        <button id="iniciarWebSocket">WebSocket</button>
+        <button class="temaClaro" id="alternarTemaOscuro">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+            Modo Oscuro</button>
+
+    </div>
+    <main>
+        <div class="keys-container" id="keys-container">
+
+
+            <!-- Data Real -->
+            <!-- <div class="keys">
+                <div class="keys__name">rssi</div>
+                <div class="keys__value" id="key-rssi">-45</div>
+            </div>
+            <div class="keys">
+                <div class="keys__name">mac</div>
+                <div class="keys__value" id="key-mac">AC:0B:FB:D3:C0:A4</div>
+            </div>
+            <div class="keys">
+                <div class="keys__name">ip</div>
+                <div class="keys__value" id="key-ip">192.168.1.109</div>
+            </div>
+            <div class="keys">
+                <div class="keys__name">ssid</div>
+                <div class="keys__value" id="key-ssid">lu4ult</div>
+            </div> -->
+
+
+        </div>
+        <div class="monitor" id="monitor">
+            <!-- <span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":576}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":577}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":578}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":579}</span><br><span>{"rssi":-52,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":580}</span><br><span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":581}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":582}</span><br><span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":583}</span><br><span>{"rssi":-54,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":584}</span><br><span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":585}</span><br><span>{"rssi":-54,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":586}</span><br><span>{"rssi":-56,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":587}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":588}</span><br><span>{"rssi":-52,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":589}</span><br><span>{"rssi":-52,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":590}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":591}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":592}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":593}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":594}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":595}</span><br> -->
+            <!-- <span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":576}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":577}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":578}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":579}</span><br><span>{"rssi":-52,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":580}</span><br><span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":581}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":582}</span><br><span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":583}</span><br><span>{"rssi":-54,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":584}</span><br><span>{"rssi":-55,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":585}</span><br><span>{"rssi":-54,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":586}</span><br><span>{"rssi":-56,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":587}</span><br><span>{"rssi":-53,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":588}</span><br><span>{"rssi":-52,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":589}</span><br><span>{"rssi":-52,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":590}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":591}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":592}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":593}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":594}</span><br><span>{"rssi":-45,"mac":"AC:0B:FB:D3:C0:A4","ip":"192.168.1.109","ssid":"lu4ult","millis":595}</span><br> -->
+        </div>
+        <div class="monitorOpciones">
+            <button class="clrScr" id="clrScr">Limpiar pantalla</button>
+        </div>
+    </main>
+    <script src="script.js">
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+* {
+//     border: 1px solid red;
+}
+
+
+.centrarColumna {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body {
+    @extend .centrarColumna;
+    //background: black;
+
+    .portOptions {
+
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: baseline;
+
+        select {
+            background-color: inherit;
+        }
+
+        button {
+            margin: 0.5rem;
+            padding: 0.25rem;
+            background-color: inherit;
+        }
+
+
+    }
+
+    main {
+        width: 100%;
+
+        .keys-container {
+            //background: pink;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            //padding: 1rem;
+
+            .keys {
+                margin: 1rem;
+                //@extend .centrarColumna;
+                text-align: center;
+                color: white;
+                border: 2px solid blue;
+
+                //margin: 0.5rem;
+                padding: 0.5rem;
+                .keys__name {
+                    padding: 0.5rem;
+                    background-color: blue;
+                }
+
+                .keys__value {
+                    padding: 0.5rem;
+                    background: lightblue;
+
+                }
+            }
+
+        }
+
+        .monitor {
+            border: 2px solid #ccc;
+            padding: 1rem;
+            max-height: 50vh;
+            overflow-y: auto;
+            //background-color: red;
+            span {
+               color: black;
+            }
+
+        }
+        .monitorOpciones {
+            @extend .centrarColumna;
+            button {
+                //background: blue;
+            }
+        }
+    }
+}
