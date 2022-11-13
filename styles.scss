@@ -20,17 +20,31 @@ body {
         width: 80%;
         display: flex;
         flex-direction: row;
-        justify-content: baseline;
-
-        select {
-            background-color: inherit;
-        }
+        justify-content: center;
 
         button {
-            margin: 0.5rem;
-            padding: 0.25rem;
+            margin: 1rem;
+            width: 80px;
+            height: 80px;
+            @extend .centrarColumna;
+            justify-content: space-around;
             background-color: inherit;
+            cursor: pointer;
+            svg {
+                width: 50%;
+                height: 50%;
+            }
         }
+
+        // select {
+        //     background-color: inherit;
+        // }
+
+        // button {
+        //     margin: 0.5rem;
+        //     padding: 0.25rem;
+        //     background-color: inherit;
+        // }
 
 
     }
@@ -45,24 +59,27 @@ body {
             justify-content: center;
             flex-wrap: wrap;
             //padding: 1rem;
+            border: 2px solid #ccc;
+            margin: 0.5rem 0;
 
             .keys {
                 margin: 1rem;
                 //@extend .centrarColumna;
                 text-align: center;
                 color: white;
-                border: 2px solid blue;
+                outline: 2px solid black;
 
                 //margin: 0.5rem;
-                padding: 0.5rem;
+                //padding: 0.5rem;
                 .keys__name {
-                    padding: 0.5rem;
-                    background-color: blue;
+                    padding: 0.25rem;
+                    background-color: black;
                 }
 
                 .keys__value {
-                    padding: 0.5rem;
-                    background: lightblue;
+                    padding: 0.75rem;
+                    background: white;
+                    color: black;
 
                 }
             }
@@ -70,10 +87,12 @@ body {
         }
 
         .monitor {
+            margin: 0.5rem 0;
             border: 2px solid #ccc;
             padding: 1rem;
-            max-height: 50vh;
+            max-height: 60vh;
             overflow-y: auto;
+            scroll-behavior: smooth;
             //background-color: red;
             span {
                color: black;

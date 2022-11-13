@@ -1,4 +1,4 @@
-.centrarColumna, body main .monitorOpciones, body {
+.centrarColumna, body main .monitorOpciones, body .portOptions button, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,15 +9,19 @@ body .portOptions {
   width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: baseline;
-}
-body .portOptions select {
-  background-color: inherit;
+  justify-content: center;
 }
 body .portOptions button {
-  margin: 0.5rem;
-  padding: 0.25rem;
+  margin: 1rem;
+  width: 80px;
+  height: 80px;
+  justify-content: space-around;
   background-color: inherit;
+  cursor: pointer;
+}
+body .portOptions button svg {
+  width: 50%;
+  height: 50%;
 }
 body main {
   width: 100%;
@@ -27,27 +31,31 @@ body main .keys-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  border: 2px solid #ccc;
+  margin: 0.5rem 0;
 }
 body main .keys-container .keys {
   margin: 1rem;
   text-align: center;
   color: white;
-  border: 2px solid blue;
-  padding: 0.5rem;
+  outline: 2px solid black;
 }
 body main .keys-container .keys .keys__name {
-  padding: 0.5rem;
-  background-color: blue;
+  padding: 0.25rem;
+  background-color: black;
 }
 body main .keys-container .keys .keys__value {
-  padding: 0.5rem;
-  background: lightblue;
+  padding: 0.75rem;
+  background: white;
+  color: black;
 }
 body main .monitor {
+  margin: 0.5rem 0;
   border: 2px solid #ccc;
   padding: 1rem;
-  max-height: 50vh;
+  max-height: 60vh;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 body main .monitor span {
   color: black;
