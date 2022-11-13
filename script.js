@@ -5,7 +5,6 @@ botonAlternarTemaOscuro.addEventListener("click",cambiarTemaOscuro);
 
 function cambiarTemaOscuro() {
     let monitor = document.getElementById("monitor");
-    let keysContainer = document.getElementById("keys-container");
     if(body.className == "temaOscuro") {
         console.log("pasar a claro");
         body.classList.remove("temaOscuro");

@@ -1,4 +1,4 @@
-.centrarColumna, body main .monitorOpciones, body .portOptions button, body {
+.centrarColumna, body footer, body main .monitorOpciones, body .portOptions button, body {
   display: flex;
   flex-direction: column;
   justify-content: center;

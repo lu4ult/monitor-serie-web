@@ -150,6 +150,7 @@ body {
     }
 
     footer {
+        @extend .centrarColumna;
         margin-top: 3rem;
         position: absolute;
         bottom: 0;
