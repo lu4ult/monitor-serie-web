@@ -1,8 +1,8 @@
-# monitor-serie-web
+
+# Monitor serie web
 
 <a href="https://playful-paletas-599515.netlify.app/" target="_blank">Ver Online</a>
 
-# Monitor serie web
 
 Este proyecto simula al "monitor serie" que utilizamos el IDE de arduino para comunicarnos por el puerto serie.
 
@@ -20,10 +20,11 @@ De todas formas, hay programas de ejemplos que podes cargar.
 Esta desarrollado puramente con HTML, CSS y Javascript; no utiliza node para la comunicación con el puerto serie.
 
 
-# To-Do:
+### To-Do:
 - [ ] Agregar para enviar datos desde la web al arduino
 - [ ] Resolver WebSockets via HTTPS para integrar con ESP8266
 - [ ] Agregar repositorio en github
 - [ ] Agregar botón para descargar los datos en CSV.
-- [ ] Poder Activar/Desactivar el autoscroll, igual que en el IDE
+- [ ] Poder Activar/Desactivar el autoscroll, igual que en el IDE.
 - [ ] Poder activar/desactivar la hora del mensaje.
+- [ ] Guardar Configuración del usuario.
