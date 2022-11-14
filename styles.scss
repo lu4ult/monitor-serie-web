@@ -20,12 +20,8 @@ body {
         "null main vacio"
         "footer footer footer";
 
-
     font-family: 'Roboto', sans-serif;
-
-
-   // @extend .centrarColumna;
-    //background: black;
+    transition: all 1s;
 
     &.temaOscuro {
         background-color: black;
@@ -66,7 +62,10 @@ body {
 
             &:hover {
                // background-color: blue;
-               border: 2px solid lightblue;
+               background-color: blue;
+               color: white;
+               fill: white;
+               //border: 2px solid lightblue;
             }
 
            // border: none;

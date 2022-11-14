@@ -222,6 +222,26 @@ function iniciaWebSocket() {
 // let hora = new Date().getHours();
 // let body = document.getElementById("body");
 
+console.log(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar"));
+if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") != "true") {
+    Swal.fire({
+        title: '¿Nos ayudarías contestando una breve encuesta sobre esta herramienta?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Si! Vamos a la encuesta!',
+        denyButtonText: `No volver a mostrar`,
+        cancelButtonText: 'Quizás en un futuro...',
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            window.open("https://forms.gle/9fzzYLyAVYVHeyDr8", '_blank').focus();
+        } else if (result.isDenied) {
+          localStorage.setItem("monitor-serie-web-encuesta_no-mostrar",true)
+        }
+      });
+}
+
+
 
 console.log("fin")
 

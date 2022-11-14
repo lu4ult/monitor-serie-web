@@ -1,7 +1,7 @@
 
 # Monitor serie web
 
-<a href="https://playful-paletas-599515.netlify.app/" target="_blank">Ver Online</a>
+# <a href="https://playful-paletas-599515.netlify.app/" target="_blank">Ver Online</a>
 
 
 Este proyecto simula al "monitor serie" que utilizamos el IDE de arduino para comunicarnos por el puerto serie.
