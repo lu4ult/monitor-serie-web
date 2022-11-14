@@ -136,8 +136,31 @@ body {
 
         }
         .monitorOpciones {
-            @extend .centrarColumna;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            border: 2px solid #ccc;
+            padding: 0.5rem;
+
+            input {
+                background-color: inherit;
+                width: 60%;
+                outline: none;
+                border: none;
+                border-bottom: 2px solid green;
+                transition: all 2s;
+                &:focus {
+                    border-bottom: 2px solid blue;
+                    transition: all 2s;
+                }
+                &.temaOscuro {
+                    color: white;
+                }
+
+            }
             button {
+                width: 15%;
                 font-family: inherit;
                 font-weight: 600;
                 background-color: inherit;
@@ -145,6 +168,10 @@ body {
                 border: 2px solid #ccc;
                 cursor: pointer;
                 padding: 0.5rem;
+                &:focus {
+                    border: none;
+                    outline: 2px solid blue;
+                }
             }
         }
     }
