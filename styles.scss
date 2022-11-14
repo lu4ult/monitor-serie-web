@@ -65,7 +65,8 @@ body {
             }
 
             &:hover {
-                background-color: #ccc;
+               // background-color: blue;
+               border: 2px solid lightblue;
             }
 
            // border: none;
@@ -94,7 +95,6 @@ body {
         //width: 100%;
 
         .keys-container {
-            //background: pink;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -111,7 +111,8 @@ body {
                 outline: 2px solid black;
 
                 &.temaOscuro {
-                    outline: 2px solid #444;
+                    outline: 2px solid #777;
+                    //border: 2px solid red;;
                 }
 
                 .keys__name {
@@ -126,7 +127,6 @@ body {
 
                 }
             }
-
         }
 
         .monitor {
@@ -150,6 +150,7 @@ body {
 
         }
         .monitorOpciones {
+            position: relative;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -187,12 +188,41 @@ body {
                     outline: 2px solid blue;
                 }
             }
+
+            #descargarDatosCsv {
+                z-index: 10;
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                right: 10px;
+                top: -100px;
+
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: #ccc;
+                cursor: pointer;
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: #ccc;
+                }
+                &:hover {
+                    svg {
+                        fill: green;
+                    }
+                    &::after {
+                        content: "CSV";
+                        color: green;
+                    }
+                }
+            }
         }
     }
 
     footer {
         grid-area: footer;
-        margin-top: 2rem;
+        margin-top: 5rem;
         //background-color: blue;
         display: flex;
         flex-direction: row;
@@ -207,7 +237,7 @@ body {
                 font-weight: 400;
             }
             a {
-                height: 40px;
+                height: 50px;
                 img, svg {
                     color: violet;
                     height: 100%;

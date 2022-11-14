@@ -41,7 +41,7 @@ body .portOptions button:active {
   transform: translate(2px, 2px);
 }
 body .portOptions button:hover {
-  background-color: #ccc;
+  border: 2px solid lightblue;
 }
 body .portOptions button svg {
   width: 50%;
@@ -76,7 +76,7 @@ body main .keys-container .keys {
   outline: 2px solid black;
 }
 body main .keys-container .keys.temaOscuro {
-  outline: 2px solid #444;
+  outline: 2px solid #777;
 }
 body main .keys-container .keys .keys__name {
   padding: 0.25rem;
@@ -103,6 +103,7 @@ body main .monitor.temaOscuro span {
   color: green;
 }
 body main .monitorOpciones {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -139,9 +140,34 @@ body main .monitorOpciones button:focus {
   border: none;
   outline: 2px solid blue;
 }
+body main .monitorOpciones #descargarDatosCsv {
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 10px;
+  top: -100px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ccc;
+  cursor: pointer;
+}
+body main .monitorOpciones #descargarDatosCsv svg {
+  width: 100%;
+  height: 100%;
+  fill: #ccc;
+}
+body main .monitorOpciones #descargarDatosCsv:hover svg {
+  fill: green;
+}
+body main .monitorOpciones #descargarDatosCsv:hover::after {
+  content: "CSV";
+  color: green;
+}
 body footer {
   grid-area: footer;
-  margin-top: 2rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -153,7 +179,7 @@ body footer div span {
   font-weight: 400;
 }
 body footer div a {
-  height: 40px;
+  height: 50px;
 }
 body footer div a img, body footer div a svg {
   color: violet;

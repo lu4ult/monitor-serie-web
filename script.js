@@ -97,35 +97,19 @@ document.getElementById("selectComPort").addEventListener('click', async () => {
         const { value, done } = await reader.read();
         let endTime = performance.now();
 
-
         if(endTime - startTime <50) {                                               //Contamos cuánto tiempo tardó en recibir la data, ya que sino se recibe el mensaje cortado, por el buffer de hardware del arduino.
             dataRecibida += value;
         }
 
         else {
-            // dataRecibida = dataRecibida.replace('\r',"");                           //Eliminamos el retorno de carro y nueva línea si existieran.
-            // dataRecibida = dataRecibida.replace('\n',"");
-
-            // console.log("[serial]\n" + dataRecibida);
-            // console.log("r: "+dataRecibida.includes('\r'));
-            // console.log("n: "+dataRecibida.includes('\n'));
-            // console.log("largo: "+dataRecibida.length);
-
             jsonToDom(dataRecibida);
 
             mensajesMonitor.push(dataRecibida);                             //Todos los textos recibidos los almacenamos en un array para luego crear los elementos del HTML
             dataRecibida = dataRecibida.replace('\n',"<br>")
             let monitor = document.getElementById("monitor");
-            // monitor.innerHTML = "";
-            // for (let el of mensajesMonitor) {
-            //     monitor.innerHTML += `<span>${el}</span><br>`;
-            // }
-
 
             monitor.innerHTML += dataRecibida;
-
             monitor.scrollTop = monitor.scrollHeight;
-
 
         dataRecibida = value;
         }
@@ -163,6 +147,27 @@ function limpiarMonitor() {
     mensajesMonitor = [];
     //port.close()
 }
+
+let botonDescargarDatosCsv = document.getElementById("descargarDatosCsv");
+botonDescargarDatosCsv.onclick = () => {
+    let csv = [];
+    for (let i=1; i<mensajesMonitor.length;i++) {
+        let fila = [i,mensajesMonitor[i]];
+        csv.push(fila)
+    }
+    console.log(csv);
+    let csvContent = "data:text/csv;charset=utf-8,";                            //https://stackoverflow.com/questions/14964035
+    csv.forEach(function(rowArray) {
+        let row = rowArray.join(",");                                           //Transformamos esa matriz bidimensional en algo tipo CSV
+        csvContent += row;
+    });
+    console.log(csvContent)
+    let encodedUri = encodeURI(csvContent);
+    let anchorDescarga = document.getElementById("anchorDescargar");
+    anchorDescarga.setAttribute("href", encodedUri);                            //Para poder descargar el archivo creado hay que "adjuntarlo" a un anchor, el cuál no está visible en el DOM.
+    anchorDescarga.setAttribute("download", "serial_arduino_data.csv");
+    anchorDescarga.click();
+};
 
 
 //To-Do: analizar el objeto evento a ver si me indica el COM
