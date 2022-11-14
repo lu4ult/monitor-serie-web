@@ -21,10 +21,11 @@ Esta desarrollado puramente con HTML, CSS y Javascript; no utiliza node para la 
 
 
 ### To-Do:
-- [ ] Agregar para enviar datos desde la web al arduino
+- [X] Agregar para enviar datos desde la web al arduino
 - [ ] Resolver WebSockets via HTTPS para integrar con ESP8266
-- [ ] Agregar repositorio en github
-- [ ] Agregar botón para descargar los datos en CSV.
+- [X] Agregar repositorio en github
+- [X] Agregar botón para descargar los datos en CSV.
+- [ ] Agregar hora del mensaje en el CSV
 - [ ] Poder Activar/Desactivar el autoscroll, igual que en el IDE.
 - [ ] Poder activar/desactivar la hora del mensaje.
 - [ ] Guardar Configuración del usuario.
