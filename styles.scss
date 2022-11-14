@@ -12,10 +12,19 @@
 }
 
 body {
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    //grid-template-rows: 30% auto 15%;
+    grid-template-areas:
+        "null botones vacio"
+        "null main vacio"
+        "footer footer footer";
+
 
     font-family: 'Roboto', sans-serif;
 
-    @extend .centrarColumna;
+
+   // @extend .centrarColumna;
     //background: black;
 
     &.temaOscuro {
@@ -28,9 +37,13 @@ body {
         color: black;
     }
 
+    // header {
+    //     grid-area: header;
+    // }
     .portOptions {
+        grid-area: botones;
 
-        width: 80%;
+       // width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -52,7 +65,8 @@ body {
             }
 
             &:hover {
-                background-color: #ccc;
+               // background-color: blue;
+               border: 2px solid lightblue;
             }
 
            // border: none;
@@ -77,10 +91,10 @@ body {
     }
 
     main {
-        width: 100%;
+        grid-area: main;
+        //width: 100%;
 
         .keys-container {
-            //background: pink;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -97,7 +111,8 @@ body {
                 outline: 2px solid black;
 
                 &.temaOscuro {
-                    outline: 2px solid #444;
+                    outline: 2px solid #777;
+                    //border: 2px solid red;;
                 }
 
                 .keys__name {
@@ -112,7 +127,6 @@ body {
 
                 }
             }
-
         }
 
         .monitor {
@@ -136,8 +150,32 @@ body {
 
         }
         .monitorOpciones {
-            @extend .centrarColumna;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            border: 2px solid #ccc;
+            padding: 0.5rem;
+
+            input {
+                background-color: inherit;
+                width: 60%;
+                outline: none;
+                border: none;
+                border-bottom: 2px solid green;
+                transition: all 2s;
+                &:focus {
+                    border-bottom: 2px solid blue;
+                    transition: all 2s;
+                }
+                &.temaOscuro {
+                    color: white;
+                }
+
+            }
             button {
+                width: 15%;
                 font-family: inherit;
                 font-weight: 600;
                 background-color: inherit;
@@ -145,25 +183,85 @@ body {
                 border: 2px solid #ccc;
                 cursor: pointer;
                 padding: 0.5rem;
+                &:focus {
+                    border: none;
+                    outline: 2px solid blue;
+                }
+            }
+
+            #descargarDatosCsv {
+                z-index: 10;
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                right: 10px;
+                top: -100px;
+
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: #ccc;
+                cursor: pointer;
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: #ccc;
+                }
+                &:hover {
+                    svg {
+                        fill: green;
+                    }
+                    &::after {
+                        content: "CSV";
+                        color: green;
+                    }
+                }
             }
         }
     }
 
     footer {
-        @extend .centrarColumna;
-        margin-top: 3rem;
-        position: absolute;
-        bottom: 0;
-        background-color: black;
-        width: 100%;
-        text-align: center;
+        grid-area: footer;
+        margin-top: 5rem;
+        //background-color: blue;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
         padding: 1rem;
-        a {
-            font-family: inherit;
-            font-weight: 400;
-            text-decoration: none;
-            color: blueviolet;
+        border-top: 3px solid #ccc;
+        div {
+            @extend .centrarColumna;
+            // width: auto;
+            span {
+                font-family: inherit;
+                font-weight: 400;
+            }
+            a {
+                height: 50px;
+                img, svg {
+                    color: violet;
+                    height: 100%;
+                    width: auto;
+                    //fill: pink;
 
+                    &.temaOscuro {
+                        fill: violet;
+                    }
+                }
+
+                &.cafecito {
+                    height: 30px;
+                }
+            }
+        }
+        &.temaOscuro {
+            div {
+                a {
+                    svg {
+                        fill: white;
+                    }
+                }
+            }
         }
     }
 }
