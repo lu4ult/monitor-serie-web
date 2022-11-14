@@ -1,4 +1,4 @@
-.centrarColumna, body main .monitorOpciones, body .portOptions button, body {
+.centrarColumna, body footer div, body .portOptions button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,6 +6,9 @@
 }
 
 body {
+  display: grid;
+  grid-template-columns: 5% auto 5%;
+  grid-template-areas: "null botones vacio" "null main vacio" "footer footer footer";
   font-family: "Roboto", sans-serif;
 }
 body.temaOscuro {
@@ -17,7 +20,7 @@ body.temaClaro {
   color: black;
 }
 body .portOptions {
-  width: 80%;
+  grid-area: botones;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -56,7 +59,7 @@ body .portOptions .temaOscuro svg {
   fill: green;
 }
 body main {
-  width: 100%;
+  grid-area: main;
 }
 body main .keys-container {
   width: 100%;
@@ -99,7 +102,31 @@ body main .monitor span {
 body main .monitor.temaOscuro span {
   color: green;
 }
+body main .monitorOpciones {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border: 2px solid #ccc;
+  padding: 0.5rem;
+}
+body main .monitorOpciones input {
+  background-color: inherit;
+  width: 60%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid green;
+  transition: all 2s;
+}
+body main .monitorOpciones input:focus {
+  border-bottom: 2px solid blue;
+  transition: all 2s;
+}
+body main .monitorOpciones input.temaOscuro {
+  color: white;
+}
 body main .monitorOpciones button {
+  width: 15%;
   font-family: inherit;
   font-weight: 600;
   background-color: inherit;
@@ -108,18 +135,37 @@ body main .monitorOpciones button {
   cursor: pointer;
   padding: 0.5rem;
 }
-body footer {
-  margin-top: 3rem;
-  position: absolute;
-  bottom: 0;
-  background-color: black;
-  width: 100%;
-  text-align: center;
-  padding: 1rem;
+body main .monitorOpciones button:focus {
+  border: none;
+  outline: 2px solid blue;
 }
-body footer a {
+body footer {
+  grid-area: footer;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  border-top: 3px solid #ccc;
+}
+body footer div span {
   font-family: inherit;
   font-weight: 400;
-  text-decoration: none;
-  color: blueviolet;
+}
+body footer div a {
+  height: 40px;
+}
+body footer div a img, body footer div a svg {
+  color: violet;
+  height: 100%;
+  width: auto;
+}
+body footer div a img.temaOscuro, body footer div a svg.temaOscuro {
+  fill: violet;
+}
+body footer div a.cafecito {
+  height: 30px;
+}
+body footer.temaOscuro div a svg {
+  fill: white;
 }/*# sourceMappingURL=styles.css.map */
