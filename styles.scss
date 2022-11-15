@@ -265,3 +265,18 @@ body {
         }
     }
 }
+
+
+@media screen and (max-width: 500px) {
+    body {
+        main {
+            .monitorOpciones {
+                input, button {
+                    width: auto;
+                    min-width: 56px;
+                    max-width: 96px;
+                }
+            }
+        }
+    }
+}

@@ -201,4 +201,12 @@ body footer div a.cafecito {
 }
 body footer.temaOscuro div a svg {
   fill: white;
+}
+
+@media screen and (max-width: 500px) {
+  body main .monitorOpciones input, body main .monitorOpciones button {
+    width: auto;
+    min-width: 56px;
+    max-width: 96px;
+  }
 }/*# sourceMappingURL=styles.css.map */

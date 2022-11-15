@@ -88,6 +88,16 @@ let historialTeclado = [];
 
 
 document.getElementById("selectComPort").addEventListener('click', async () => {
+
+    if (!("serial" in navigator)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ups!',
+            text: 'Parece que no hay ningún puerto serie en este dispositivo!',
+            // footer: '<a href="">Why do I have this issue?</a>'
+          })
+        return;
+      }
     port = await navigator.serial.requestPort();
     await port.open({ baudRate: document.getElementById("baudrateSelector").value});
 
@@ -261,7 +271,7 @@ githubRepo.then(res => res.json()).then(response => {
         document.getElementById("watchersCount").innerHTML =  "<strong>" + estrellitas + " ★</strong>";
 });
 
-if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) {
+if((localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) && ("serial" in navigator)) {
     Swal.fire({
         title: '¿Nos ayudarías contestando una breve encuesta sobre esta herramienta?',
         showDenyButton: true,
