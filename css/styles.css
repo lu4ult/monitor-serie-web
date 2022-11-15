@@ -88,6 +88,12 @@ body main .keys-container .keys .keys__value {
   background: white;
   color: black;
 }
+body main .keys-container .keys .recentlyUpdated {
+  background-color: cyan;
+}
+body main .keys-container .keys .recentlyUpdatedRemoved {
+  transition: all 1s;
+}
 body main .monitor {
   margin: 0.5rem 0;
   border: 2px solid #ccc;

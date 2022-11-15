@@ -36,11 +36,8 @@ function cambiarTemaOscuro() {
 }
 
 cambiarTemaOscuro();
-cambiarTemaOscuro();
 
 //https://web.dev/serial/
-
-console.log("hola")
 
 function jsonToDom(recibido) {
     recibido = recibido.replace('\r',"");                           //Eliminamos el retorno de carro y nueva línea si existieran.
@@ -71,7 +68,15 @@ function jsonToDom(recibido) {
         document.getElementById("keys-container").innerHTML += elemento;
         }
         else {
-            elementoBuscado.innerText = valor;
+            if(elementoBuscado.innerText != valor) {                                        //Si realmente se actualizó el valor le agregamos una clase para que resalte y haga un efecto tipo firebase database
+                elementoBuscado.innerText = valor;
+                elementoBuscado.classList.remove("recentlyUpdatedRemoved");
+                elementoBuscado.classList.add("recentlyUpdated");
+                setTimeout(() => {
+                    elementoBuscado.classList.remove("recentlyUpdated");
+                    elementoBuscado.classList.add("recentlyUpdatedRemoved");
+                }, 500);
+            }
         }
     }
     return true;
