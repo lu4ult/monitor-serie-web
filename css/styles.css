@@ -65,12 +65,10 @@ body main {
   grid-area: main;
 }
 body main .keys-container {
-  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   border: 2px solid #ccc;
-  margin: 0.5rem 0;
 }
 body main .keys-container .keys {
   margin: 1rem;

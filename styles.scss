@@ -91,16 +91,13 @@ body {
 
     main {
         grid-area: main;
-        //width: 100%;
 
         .keys-container {
-            width: 100%;
+           // width: 100%;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            //padding: 1rem;
             border: 2px solid #ccc;
-            margin: 0.5rem 0;
 
             .keys {
                 margin: 1rem;
