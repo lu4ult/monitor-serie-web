@@ -7,7 +7,7 @@
 
 body {
   display: grid;
-  grid-template-columns: 5% auto 5%;
+  grid-template-columns: auto 90% auto;
   grid-template-areas: "null botones vacio" "null main vacio" "footer footer footer";
   font-family: "Roboto", sans-serif;
   transition: all 1s;

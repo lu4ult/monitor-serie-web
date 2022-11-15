@@ -13,7 +13,7 @@
 
 body {
     display: grid;
-    grid-template-columns: 5% auto 5%;
+    grid-template-columns: auto 90% auto;
     //grid-template-rows: 30% auto 15%;
     grid-template-areas:
         "null botones vacio"
