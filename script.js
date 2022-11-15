@@ -36,6 +36,7 @@ function cambiarTemaOscuro() {
 }
 
 cambiarTemaOscuro();
+cambiarTemaOscuro();
 
 //https://web.dev/serial/
 
@@ -260,6 +261,11 @@ if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) {
           localStorage.setItem("monitor-serie-web-encuesta_no-mostrar",JSON.stringify(new Date()))
         }
       });
+}
+
+if(sessionStorage.getItem("esPrimeraCarga") === null) {
+    sessionStorage.setItem("esPrimeraCarga",true);
+    document.getElementById("monitor").innerHTML = '<p>Aquí verá los mensajes del serial</p><p>Recuerde que puede descargar los mensajes recibidos en CSV.</p><p>Y puede ver el historial de mensajes enviados con las teclas arriba y abajo</p>';
 }
 
 // if(localStorage.getItem("monitor-serie-web-_primer-inicio") === null) {
