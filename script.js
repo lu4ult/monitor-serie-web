@@ -194,10 +194,13 @@ TODO: resolver web socket sobre HTTPS
 // let botonWebSocket = document.getElementById("iniciarWebSocket");
 // botonWebSocket.addEventListener("click",iniciarWebSocket);
 
-function iniciarWebSocket() {
+function iniciarWebSocket(tipo) {
     let ip = prompt("direccion ip local?");
     //socket = new WebSocket("ws:/" + "/" + location.host + ":81");
-    socket = new WebSocket("ws:/" + "/" + ip + ":81");
+    if(tipo)
+        socket = new WebSocket("ws:/" + "/" + ip + ":81");
+    else
+        socket = new WebSocket("wss:/" + "/" + ip + ":81")
 
     socket.onopen = function(e) {
         console.log("[socket] socket.onopen ");
@@ -245,6 +248,13 @@ window.addEventListener('keydown', function (e) {
     }
   }, false);
 
+
+let githubRepo = fetch("https://api.github.com/repos/lu4ult/monitor-serie-web");
+githubRepo.then(res => res.json()).then(response => {
+    let estrellitas = response["stargazers_count"];
+    if(estrellitas)
+        document.getElementById("watchersCount").innerHTML =  "<strong>" + estrellitas + " ★</strong>";
+});
 
 if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) {
     Swal.fire({
