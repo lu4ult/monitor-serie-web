@@ -1,4 +1,3 @@
-
 let body = document.getElementById("body");
 let botonAlternarTemaOscuro = document.getElementById("alternarTemaOscuro");
 botonAlternarTemaOscuro.addEventListener("click",cambiarTemaOscuro);
@@ -79,6 +78,7 @@ function jsonToDom(recibido) {
 
 let port = null;
 let mensajesMonitor = [];
+let historialTeclado = [];
 
 
 document.getElementById("selectComPort").addEventListener('click', async () => {
@@ -185,19 +185,15 @@ navigator.serial.addEventListener("connect", (event) => {
 
 
 
-
-
-
 /***    Web Socket      ***/
 
 /*
 TODO: resolver web socket sobre HTTPS
+*/
+// let botonWebSocket = document.getElementById("iniciarWebSocket");
+// botonWebSocket.addEventListener("click",iniciarWebSocket);
 
-let botonWebSocket = document.getElementById("iniciarWebSocket");
-botonWebSocket.addEventListener("click",iniciaWebSocket);
-
-function iniciaWebSocket() {
-    //alert("hola")
+function iniciarWebSocket() {
     let ip = prompt("direccion ip local?");
     //socket = new WebSocket("ws:/" + "/" + location.host + ":81");
     socket = new WebSocket("ws:/" + "/" + ip + ":81");
@@ -215,12 +211,38 @@ function iniciaWebSocket() {
     };
 }
 
-*/
+let desplazamiento = 0;
 
+window.addEventListener('keydown', function (e) {
+    //if(e.key === "Enter" && document.getElementById("textoParaArduino") === document.activeElement) {
+    if(e.key === "Enter") {
+        document.getElementById("enviarArduino").click();                                                               //Presionamos el botón "enviar" para enviar el mensaje por el serial
+        historialTeclado.push(document.getElementById("textoParaArduino").value);
+        document.getElementById("textoParaArduino").value = "";                                                         //Borramos el contenido del input y lo almacenamos en el historial
+        desplazamiento = 0;
+        }
 
+    if(historialTeclado.length == 0)
+        return;
+                                                                                                                        //Las teclas arriba y abajo aumentan el "desplazamiento" que usamos como índice
+                                                                                                                        //para navegar sobre el array historialTeclado y mostrarlo en el input.
+    if(e.key === "ArrowUp") {
+        document.getElementById("textoParaArduino").value = historialTeclado[historialTeclado.length -1 -desplazamiento];
+        if(desplazamiento < historialTeclado.length-1)
+            desplazamiento++;
+    }
 
-// let hora = new Date().getHours();
-// let body = document.getElementById("body");
+    if(e.key === "ArrowDown") {
+        if(desplazamiento <= historialTeclado.length && desplazamiento)
+            desplazamiento--;
+        document.getElementById("textoParaArduino").value = historialTeclado[historialTeclado.length -1 -desplazamiento];
+    }
+
+    if(e.key === "h") {
+        console.log("Desplazamiento: "+desplazamiento);
+        console.log(historialTeclado.join(","));
+    }
+  }, false);
 
 
 if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) {
@@ -232,7 +254,6 @@ if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) {
         denyButtonText: `No volver a mostrar`,
         cancelButtonText: 'Quizás en un futuro...',
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             window.open("https://forms.gle/9fzzYLyAVYVHeyDr8", '_blank').focus();
         } else if (result.isDenied) {
@@ -241,7 +262,6 @@ if(localStorage.getItem("monitor-serie-web-encuesta_no-mostrar") === null) {
       });
 }
 
-
-
-console.log("fin")
-
+// if(localStorage.getItem("monitor-serie-web-_primer-inicio") === null) {
+//     document.getElementById("monitor").innerHTML = '<strong>Tips:</strong><ul><li>Utilice el botón "Descargar CSV" para descargar todos los mensajes del monitor.</li><li>Utilice las flechas arriba y abajo del teclado para reescribir mensajes ya enviados (como en terminal linux)</li></ul>';
+// }
